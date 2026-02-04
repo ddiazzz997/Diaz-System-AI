@@ -105,8 +105,8 @@ const Hero: React.FC = () => {
       <div className="mb-20 relative z-10 mt-4">
         <img
           src="Logo/Logoo.png"
-          alt="Logo"
-          className="h-8 md:h-10 w-auto"
+          alt="Diaz Systems AI"
+          className="h-12 w-auto"
         />
       </div>
 
