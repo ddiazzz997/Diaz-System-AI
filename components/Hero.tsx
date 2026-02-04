@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
       {/* Logo */}
       <div className="mb-20 relative z-10 mt-4">
         <img
-          src="Logo/Logoo.png"
+          src="/Logo/Logoo.png"
           alt="Diaz Systems AI"
           className="h-12 w-auto"
         />
@@ -154,7 +154,7 @@ const Hero: React.FC = () => {
                 {/* Profile Card */}
                 <div className="bg-white/5 rounded-2xl p-3 border border-white/10 flex items-center gap-3 hover:bg-white/10 transition-colors">
                   <div className="w-10 h-10 rounded-full p-[1px] bg-gradient-to-tr from-blue-500 to-purple-500">
-                    <img src="Logo/Foto_de_Perfil_De_Instagram_Odontologa_Profesional_Azul_Celeste-removebg-preview.png" alt="Daniel Díaz" className="w-full h-full rounded-full object-cover" />
+                    <img src="/Logo/Foto_de_Perfil_De_Instagram_Odontologa_Profesional_Azul_Celeste-removebg-preview.png" alt="Daniel Díaz" className="w-full h-full rounded-full object-cover" />
                   </div>
                   <div>
                     <div className="text-sm font-bold text-white">Daniel Díaz</div>

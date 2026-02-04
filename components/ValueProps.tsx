@@ -198,7 +198,7 @@ const ValueProps: React.FC = () => {
             <div className="absolute inset-0 bg-blue-500/20 blur-[100px] rounded-full" />
             <div className="glass-panel p-2 rounded-3xl border border-white/10 relative z-10 transform hover:scale-[1.02] transition-transform duration-500">
               <img
-                src="Logo/Foto_de_Perfil_De_Instagram_Odontologa_Profesional_Azul_Celeste-removebg-preview.png"
+                src="/Logo/Foto_de_Perfil_De_Instagram_Odontologa_Profesional_Azul_Celeste-removebg-preview.png"
                 alt="Daniel Díaz"
                 className="w-full h-auto rounded-2xl grayscale hover:grayscale-0 transition-all duration-500"
               />
