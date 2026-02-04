@@ -4,20 +4,20 @@ const Testimonials: React.FC = () => {
   const reviews = [
     {
       name: "Michael Chen",
-      role: "Founder, Scale Digital",
-      text: "We went from zero LinkedIn presence to 17 qualified discovery calls in the first 45 days. Closed 4 new clients worth $78k in recurring revenue. This completely changed how we think about client acquisition.",
+      role: "Fundador, Scale Digital",
+      text: "Implementar este sistema de IA nos permitió automatizar el 80% de nuestras tareas operativas. Ahora nuestro equipo se enfoca puramente en estrategia y cierre, mientras los agentes de IA manejan toda la prospección y cualificación inicial.",
       img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80"
     },
     {
       name: "Jennifer Martinez",
-      role: "CEO, Growth Labs Agency",
-      text: "I was skeptical because I'd tried LinkedIn before with zero results. Within 3 weeks we had our calendar filled with ideal-fit prospects. We've since brought on 6 new retainer clients and had to expand our team.",
+      role: "CEO, Agencia Growth Labs",
+      text: "Lo que más me impresionó fue la arquitectura de datos. No es solo 'otra herramienta de automatización', es un ecosistema completo que nos da control total sobre nuestros inputs y outputs. Escalamos a 3x sin contratar a una sola persona más.",
       img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80"
     },
     {
       name: "David Thompson",
-      role: "Managing Partner, Apex Consulting",
-      text: "Finally, a predictable lead source that doesn't require me to do anything. We're booking 8-12 calls per month with decision-makers who actually have budget. Best ROI we've ever seen from any marketing channel.",
+      role: "Socio Gerente, Apex Consulting",
+      text: "La precisión de los sistemas de IA para identificar clientes ideales es incomparable. Pasamos de 'adivinar' a tener un flujo predecible de oportunidades de alta calidad. La inversión se pagó sola en las primeras 6 semanas.",
       img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80"
     }
   ];
@@ -29,7 +29,7 @@ const Testimonials: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold mb-20 text-center">
-          Real Results from <span className="text-gradient-blue">Real Agencies</span>
+          Resultados Reales de <span className="text-gradient-blue">Agencias Reales</span>
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8">

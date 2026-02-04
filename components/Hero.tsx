@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
       {/* Logo */}
       <div className="mb-20 relative z-10 mt-4">
         <img
-          src="Logo/1.png"
+          src="Logo/Logoo.png"
           alt="Logo"
           className="h-8 md:h-10 w-auto"
         />
@@ -114,12 +114,12 @@ const Hero: React.FC = () => {
       <div className="text-center max-w-5xl px-6 relative z-10 transition-all duration-1000">
 
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 opacity-0 animate-[fadeInUp_1s_ease-out_0.2s_forwards] leading-[1.1]">
-          <span className="text-white">Ready to Get 5 Clients from</span><br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 animate-gradient-x">LinkedIn in 30 Days?</span>
+          <span className="text-white">Escale su negocio</span><br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">con sistemas de IA</span>
         </h1>
 
         <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-12 opacity-0 animate-[fadeInUp_1s_ease-out_0.4s_forwards] font-light">
-          If you're making <span className="text-white font-medium">$50k/mo+ online</span> and want a hands-off LinkedIn revenue stream, we'll show you exactly how much profit you're leaving on the table.
+          Automatice procesos operativos, elimine tareas manuales y recupere +10 horas a la semana integrando flujos de IA personalizados
         </p>
 
         {/* Hero Dashboard Graphic (Reduced Size) */}
@@ -138,7 +138,7 @@ const Hero: React.FC = () => {
               </div>
               <div className="text-[10px] font-mono text-gray-400 flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                Live Revenue Tracking
+                Seguimiento de Ingresos en Vivo
               </div>
             </div>
 
@@ -154,23 +154,17 @@ const Hero: React.FC = () => {
                 {/* Profile Card */}
                 <div className="bg-white/5 rounded-2xl p-3 border border-white/10 flex items-center gap-3 hover:bg-white/10 transition-colors">
                   <div className="w-10 h-10 rounded-full p-[1px] bg-gradient-to-tr from-blue-500 to-purple-500">
-                    <img src="Logo/jack profile .png" alt="Jack Roberts" className="w-full h-full rounded-full object-cover" />
+                    <img src="Logo/Foto_de_Perfil_De_Instagram_Odontologa_Profesional_Azul_Celeste-removebg-preview.png" alt="Daniel Díaz" className="w-full h-full rounded-full object-cover" />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-white">Jack Roberts</div>
-                    <div className="text-[10px] text-green-400">Top 1% Creator</div>
+                    <div className="text-sm font-bold text-white">Daniel Díaz</div>
+                    <div className="text-[10px] text-green-400">Creador Top 1%</div>
                   </div>
                 </div>
 
                 {/* LinkedIn Box */}
                 <div className="bg-[#0077b5]/10 rounded-2xl p-4 border border-[#0077b5]/30 flex flex-col h-full group/linkedin hover:bg-[#0077b5]/20 transition-all relative overflow-hidden">
-                  <div className="flex items-center gap-3 mb-2 z-10">
-                    <img src="Logo/LinkedIn_logo_initials.png.webp" alt="LinkedIn" className="w-8 h-8 object-contain" />
-                    <div>
-                      <div className="text-xl font-bold text-white leading-none">15.2k</div>
-                      <div className="text-[10px] text-blue-200">Total Followers</div>
-                    </div>
-                  </div>
+
 
                   {/* "Nice little blue something" - Blue Pulse Graph */}
                   <div className="flex-1 flex items-end gap-[2px] mt-2 z-10">
@@ -189,24 +183,24 @@ const Hero: React.FC = () => {
                 {/* Stats Row */}
                 <div className="grid grid-cols-3 gap-3">
                   <div className="bg-white/5 rounded-xl p-3 border border-white/5 hover:border-white/10 transition-colors">
-                    <div className="text-gray-400 text-[10px] uppercase tracking-wider">Total Revenue</div>
+                    <div className="text-gray-400 text-[10px] uppercase tracking-wider">Ingresos Totales</div>
                     <div className="text-xl font-bold text-white mt-1">$124,500</div>
                     <div className="text-green-400 text-[10px] mt-1 flex items-center gap-1">
-                      <span>▲</span> 12% vs last month
+                      <span>▲</span> 12% vs mes anterior
                     </div>
                   </div>
                   <div className="bg-white/5 rounded-xl p-3 border border-white/5 hover:border-white/10 transition-colors">
-                    <div className="text-gray-400 text-[10px] uppercase tracking-wider">Pipeline Value</div>
+                    <div className="text-gray-400 text-[10px] uppercase tracking-wider">Valor en Tubería</div>
                     <div className="text-xl font-bold text-white mt-1">$52,000</div>
                     <div className="text-green-400 text-[10px] mt-1 flex items-center gap-1">
-                      <span>▲</span> 8% vs last month
+                      <span>▲</span> 8% vs mes anterior
                     </div>
                   </div>
                   <div className="bg-white/5 rounded-xl p-3 border border-white/5 hidden sm:block hover:border-white/10 transition-colors">
-                    <div className="text-gray-400 text-[10px] uppercase tracking-wider">Booked Calls</div>
+                    <div className="text-gray-400 text-[10px] uppercase tracking-wider">Llamadas Agendadas</div>
                     <div className="text-xl font-bold text-white mt-1">48</div>
                     <div className="text-green-400 text-[10px] mt-1 flex items-center gap-1">
-                      <span>▲</span> 24% vs last month
+                      <span>▲</span> 24% vs mes anterior
                     </div>
                   </div>
                 </div>
@@ -216,7 +210,7 @@ const Hero: React.FC = () => {
                 <div className="flex-1 bg-white/5 rounded-2xl border border-white/10 relative overflow-hidden flex flex-col group/chart hover:border-white/20 transition-all">
                   <div className="px-6 pt-5 pb-2 flex items-center justify-between z-10">
                     <div>
-                      <div className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">Weekly Growth</div>
+                      <div className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">Crecimiento Semanal</div>
                       <div className="text-3xl font-bold text-white">+24.5%</div>
                     </div>
                     <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
@@ -290,7 +284,7 @@ const Hero: React.FC = () => {
             onClick={() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' })}
             className="relative z-10 flex items-center gap-2 bg-white text-black px-8 py-3.5 text-base font-bold hover:bg-gray-100 transition-all rounded-xl cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:scale-[1.02] active:scale-[0.98] group/btn"
           >
-            Scale My Business
+            Escalar Mi Negocio
           </button>
         </div>
       </div>

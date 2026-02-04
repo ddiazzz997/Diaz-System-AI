@@ -18,7 +18,11 @@ const Brands: React.FC = () => {
     { name: "Tinder", logo: "BRANDS WE WORK WITH/6863d1da7723389966d8b94d_tinder.webp" },
     { name: "Adobe", logo: "BRANDS WE WORK WITH/6863d1da9f61f0468a378da9_adobe-acrobat-reader.webp" },
     { name: "TikTok", logo: "BRANDS WE WORK WITH/6863d1daeeaa9e39bb7af1de_tiktok.webp" },
-    { name: "Quora", logo: "BRANDS WE WORK WITH/6863d1daf5defba59688f04d_quora.webp" }
+    { name: "Quora", logo: "BRANDS WE WORK WITH/6863d1daf5defba59688f04d_quora.webp" },
+    { name: "Arc", logo: "BRANDS WE WORK WITH/arc.jpg" },
+    { name: "Vercel", logo: "BRANDS WE WORK WITH/vercel.png" },
+    { name: "Supabase", logo: "BRANDS WE WORK WITH/supabase.jpg" },
+    { name: "Pinecone", logo: "BRANDS WE WORK WITH/pinecone.png" }
   ];
 
   // Duplicate brands for seamless loop
@@ -31,7 +35,7 @@ const Brands: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <p className="text-center text-gray-500 text-xs font-semibold uppercase tracking-[0.2em] mb-12">
-          Trusted by Industry Leaders
+          POTENCIAMOS SU NEGOCIO CON LAS MEJORES HERRAMIENTAS
         </p>
 
         <div className="relative">

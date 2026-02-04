@@ -89,7 +89,7 @@ const ArticlePage: React.FC = () => {
       name: 'Scale With Teddy',
       logo: {
         '@type': 'ImageObject',
-        url: '/Logo/1.png'
+        url: '/Logo/Logoo.png'
       }
     },
     mainEntityOfPage: {
@@ -140,7 +140,7 @@ const ArticlePage: React.FC = () => {
           <div className="max-w-7xl mx-auto px-6 py-4">
             <div className="flex items-center gap-2 text-sm">
               <Link to="/" className="text-gray-400 hover:text-white transition-colors">
-                Home
+                Inicio
               </Link>
               <span className="text-gray-600">/</span>
               <Link to="/blog" className="text-gray-400 hover:text-white transition-colors">
@@ -192,7 +192,7 @@ const ArticlePage: React.FC = () => {
                   <span>•</span>
                   <time dateTime={article.date}>{formatDate(article.date)}</time>
                   <span>•</span>
-                  <span>5 min read</span>
+                  <span>5 min de lectura</span>
                 </div>
               </header>
 
@@ -217,14 +217,14 @@ const ArticlePage: React.FC = () => {
               <footer className="mt-16 pt-8 border-t border-white/10">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-gray-400 text-sm mb-2">Written by</p>
+                    <p className="text-gray-400 text-sm mb-2">Escrito por</p>
                     <p className="text-white font-medium">{article.author}</p>
                   </div>
                   <Link
                     to="/blog"
                     className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-all"
                   >
-                    ← Back to Blog
+                    ← Volver al Blog
                   </Link>
                 </div>
               </footer>
@@ -234,17 +234,16 @@ const ArticlePage: React.FC = () => {
             <aside className="hidden lg:block">
               <div className="sticky top-24">
                 <div className="glass-panel rounded-2xl p-6 border border-white/10">
-                  <h3 className="text-white font-bold mb-4">Table of Contents</h3>
+                  <h3 className="text-white font-bold mb-4">Tabla de Contenidos</h3>
                   <nav className="space-y-2">
                     {tableOfContents.map((item) => (
                       <a
                         key={item.id}
                         href={`#${item.id}`}
-                        className={`block text-sm transition-colors ${
-                          activeSection === item.id
-                            ? 'text-blue-400 font-medium'
-                            : 'text-gray-400 hover:text-white'
-                        } ${item.level === 3 ? 'pl-4' : ''}`}
+                        className={`block text-sm transition-colors ${activeSection === item.id
+                          ? 'text-blue-400 font-medium'
+                          : 'text-gray-400 hover:text-white'
+                          } ${item.level === 3 ? 'pl-4' : ''}`}
                       >
                         {item.text}
                       </a>
@@ -258,7 +257,7 @@ const ArticlePage: React.FC = () => {
           {/* Related Articles */}
           {relatedArticles.length > 0 && (
             <section className="mt-24">
-              <h2 className="text-3xl font-bold text-white mb-8">Related Articles</h2>
+              <h2 className="text-3xl font-bold text-white mb-8">Artículos Relacionados</h2>
               <div className="grid md:grid-cols-3 gap-6">
                 {relatedArticles.map((related) => (
                   <Link

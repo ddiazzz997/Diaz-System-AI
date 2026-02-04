@@ -24,10 +24,11 @@ const ContactForm: React.FC = () => {
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-16 space-y-6">
           <h2 className="text-4xl md:text-5xl font-bold text-white">
-            See Your Future <span className="text-gradient-blue">Revenue</span>
+            Desbloquea el sistema de inteligencia <br />
+            <span className="text-gradient-blue">artificial n.º 1 de Daniel</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Answer 5 simple questions to unlock your personalized LinkedIn Scaling Roadmap. It takes less than 30 seconds.
+            Plano personalizado en menos de 30 segundos; las empresas pagan miles por ello; es tuyo gratis.
           </p>
         </div>
 

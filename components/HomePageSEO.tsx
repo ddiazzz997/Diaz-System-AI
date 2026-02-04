@@ -6,9 +6,9 @@ const HomePageSEO: React.FC = () => {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Scale With Teddy',
-    description: 'Helping expert consultants and agencies scale past $50k/mo with data-driven LinkedIn systems.',
+    description: 'Ayudando a consultores expertos y agencias a escalar más allá de $50k/mes con sistemas de LinkedIn impulsados por datos.',
     url: 'https://scalewithteddy.com',
-    logo: 'https://scalewithteddy.com/Logo/1.png',
+    logo: 'https://scalewithteddy.com/Logo/Logoo.png',
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Sales'
@@ -38,7 +38,7 @@ const HomePageSEO: React.FC = () => {
       {
         '@type': 'ListItem',
         position: 1,
-        name: 'Home',
+        name: 'Inicio',
         item: 'https://scalewithteddy.com'
       }
     ]
@@ -52,8 +52,8 @@ const HomePageSEO: React.FC = () => {
 
   return (
     <SEO
-      title="Scale Your Business with LinkedIn"
-      description="Ready to get 5 clients from LinkedIn in 30 days? If you're making $50k/mo+ online and want a hands-off LinkedIn revenue stream, we'll show you exactly how much profit you're leaving on the table."
+      title="Escala Tu Negocio con LinkedIn"
+      description="¿Listo para conseguir 5 clientes de LinkedIn en 30 días? Si estás generando más de $50k/mes online y quieres un flujo de ingresos de LinkedIn sin intervención, te mostraremos exactamente cuánta ganancia estás dejando sobre la mesa."
       structuredData={structuredData}
     />
   );

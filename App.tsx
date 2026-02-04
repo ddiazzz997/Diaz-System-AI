@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import BlogPage from './components/BlogPage';
 import ArticlePage from './components/ArticlePage';
 import HomePageSEO from './components/HomePageSEO';
+import Chatbot from './components/Chatbot';
 
 const HomePage: React.FC = () => {
   return (
@@ -35,6 +36,7 @@ const App: React.FC = () => {
         <Route path="/blog/:slug" element={<ArticlePage />} />
       </Routes>
       <Footer />
+      <Chatbot />
     </div>
   );
 };
