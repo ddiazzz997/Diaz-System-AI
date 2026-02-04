@@ -106,7 +106,7 @@ const Hero: React.FC = () => {
         <img
           src="/Logo/Logoo.png"
           alt="Diaz Systems AI"
-          className="h-12 w-auto"
+          className="w-40 md:w-auto h-auto md:h-12"
         />
       </div>
 
@@ -143,14 +143,14 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Dashboard Content */}
-            <div className="flex-1 p-6 flex gap-6 relative">
+            <div className="flex-1 p-4 md:p-6 flex flex-col md:flex-row gap-4 md:gap-6 relative">
               {/* Background Grid */}
               <div className="absolute inset-0 opacity-10 pointer-events-none"
                 style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '30px 30px' }}
               />
 
               {/* Left Column: Profile & LinkedIn */}
-              <div className="hidden md:flex flex-col gap-4 w-56 z-10">
+              <div className="flex flex-col gap-4 w-full md:w-56 z-10">
                 {/* Profile Card */}
                 <div className="bg-white/5 rounded-2xl p-3 border border-white/10 flex items-center gap-3 hover:bg-white/10 transition-colors">
                   <div className="w-10 h-10 rounded-full p-[1px] bg-gradient-to-tr from-blue-500 to-purple-500">
@@ -163,7 +163,7 @@ const Hero: React.FC = () => {
                 </div>
 
                 {/* LinkedIn Box */}
-                <div className="bg-[#0077b5]/10 rounded-2xl p-4 border border-[#0077b5]/30 flex flex-col h-full group/linkedin hover:bg-[#0077b5]/20 transition-all relative overflow-hidden">
+                <div className="hidden md:flex bg-[#0077b5]/10 rounded-2xl p-4 border border-[#0077b5]/30 flex-col h-full group/linkedin hover:bg-[#0077b5]/20 transition-all relative overflow-hidden">
 
 
                   {/* "Nice little blue something" - Blue Pulse Graph */}
