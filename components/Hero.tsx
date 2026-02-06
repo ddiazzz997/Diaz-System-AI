@@ -158,7 +158,7 @@ const Hero: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-sm font-bold text-white">Daniel Díaz</div>
-                    <div className="text-[10px] text-green-400">Creador Top 1%</div>
+                    <div className="text-[10px] text-blue-400">Diaz Systems AI</div>
                   </div>
                 </div>
 
@@ -180,8 +180,19 @@ const Hero: React.FC = () => {
 
               {/* Right Column: Chart & Stats */}
               <div className="flex-1 flex flex-col z-10 gap-4">
-                {/* Stats Row */}
-                <div className="grid grid-cols-3 gap-3">
+
+                {/* Mobile: Central Metric Card */}
+                <div className="md:hidden bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-2xl p-6 border border-blue-500/30 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10" />
+                  <div className="relative z-10 text-center">
+                    <div className="text-6xl font-bold text-white mb-2">150+</div>
+                    <div className="text-gray-300 text-xs uppercase tracking-wider">Sistemas IA Desplegados</div>
+                  </div>
+                  <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-blue-500/20 blur-2xl rounded-full" />
+                </div>
+
+                {/* Desktop: Stats Row (3 columns) */}
+                <div className="hidden md:grid grid-cols-3 gap-3">
                   <div className="bg-white/5 rounded-xl p-3 border border-white/5 hover:border-white/10 transition-colors">
                     <div className="text-gray-400 text-[10px] uppercase tracking-wider">Ingresos Totales</div>
                     <div className="text-xl font-bold text-white mt-1">$124,500</div>
@@ -190,13 +201,13 @@ const Hero: React.FC = () => {
                     </div>
                   </div>
                   <div className="bg-white/5 rounded-xl p-3 border border-white/5 hover:border-white/10 transition-colors">
-                    <div className="text-gray-400 text-[10px] uppercase tracking-wider">Valor en Tubería</div>
+                    <div className="text-gray-400 text-[10px] uppercase tracking-wider">Valor del Pipeline</div>
                     <div className="text-xl font-bold text-white mt-1">$52,000</div>
                     <div className="text-green-400 text-[10px] mt-1 flex items-center gap-1">
                       <span>▲</span> 8% vs mes anterior
                     </div>
                   </div>
-                  <div className="bg-white/5 rounded-xl p-3 border border-white/5 hidden sm:block hover:border-white/10 transition-colors">
+                  <div className="bg-white/5 rounded-xl p-3 border border-white/5 hover:border-white/10 transition-colors">
                     <div className="text-gray-400 text-[10px] uppercase tracking-wider">Llamadas Agendadas</div>
                     <div className="text-xl font-bold text-white mt-1">48</div>
                     <div className="text-green-400 text-[10px] mt-1 flex items-center gap-1">
@@ -251,6 +262,25 @@ const Hero: React.FC = () => {
                     </div>
                   </div>
                 </div>
+
+                {/* Mobile: Bottom Stats (2 columns) */}
+                <div className="md:hidden grid grid-cols-2 gap-3">
+                  <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                    <div className="text-gray-400 text-[10px] uppercase tracking-wider mb-2">Ingresos Totales</div>
+                    <div className="text-2xl font-bold text-white">$124,500</div>
+                    <div className="text-green-400 text-[10px] mt-2 flex items-center gap-1">
+                      <span>▲</span> 12% vs mes anterior
+                    </div>
+                  </div>
+                  <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                    <div className="text-gray-400 text-[10px] uppercase tracking-wider mb-2">Valor del Pipeline</div>
+                    <div className="text-2xl font-bold text-white">$52,000</div>
+                    <div className="text-green-400 text-[10px] mt-2 flex items-center gap-1">
+                      <span>▲</span> 8% vs mes anterior
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
 
