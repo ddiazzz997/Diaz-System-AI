@@ -7,7 +7,7 @@ interface FormData {
   email: string;
   employees: string;
   revenue: string;
-  ownership: string;
+  phone: string;
 }
 
 interface MultiStepFormProps {
@@ -22,7 +22,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
     email: '',
     employees: '',
     revenue: '',
-    ownership: ''
+    phone: ''
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -41,20 +41,15 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
   ];
 
   const revenueOptions = [
-    'Menos de $100k',
-    '$100k a $250k',
-    '$250k a $500k',
-    '$500k a $1M',
-    '$1M a $3M',
-    '$3M a $10M'
+    'Menos de $5,000/mes',
+    '$5,000 a $10,000/mes',
+    '$10,000 a $25,000/mes',
+    '$25,000 a $50,000/mes',
+    '$50,000 a $100,000/mes',
+    'Más de $100,000/mes'
   ];
 
-  const ownershipOptions = [
-    "Soy el propietario mayoritario (>51%)",
-    "Soy socio 50/50",
-    "Soy propietario minoritario (<50%)",
-    "Soy un empleado"
-  ];
+
 
   const validateStep = (step: number): boolean => {
     const newErrors: { [key: string]: string } = {};
@@ -72,7 +67,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
     } else if (step === 4) {
       if (!formData.revenue) newErrors.revenue = 'Por favor selecciona una opción.';
     } else if (step === 5) {
-      if (!formData.ownership) newErrors.ownership = 'Por favor selecciona una opción.';
+      if (!formData.phone.trim()) newErrors.phone = 'Por favor completa este campo obligatorio.';
     }
 
     setErrors(newErrors);
@@ -272,12 +267,12 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
         {currentStep === 4 && (
           <div className="space-y-8 fade-in-up">
             <div className="text-center">
-              <h3 className="text-2xl font-semibold text-white mb-2">Ingresos Actuales</h3>
+              <h3 className="text-2xl font-semibold text-white mb-2">Ingresos Mensuales</h3>
               <p className="text-gray-500 text-sm">Pregunta 4 de 5</p>
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs text-gray-400 uppercase tracking-widest pl-2">Ingresos Anuales</label>
+              <label className="text-xs text-gray-400 uppercase tracking-widest pl-2">Ingresos Mensuales</label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {revenueOptions.map(opt => (
                   <button
@@ -312,11 +307,11 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
           </div>
         )}
 
-        {/* Step 5: Ownership */}
+        {/* Step 5: Phone Number */}
         {currentStep === 5 && (
           <div className="space-y-8 fade-in-up">
             <div className="text-center">
-              <h3 className="text-2xl font-semibold text-white mb-2">Paso Final</h3>
+              <h3 className="text-2xl font-semibold text-white mb-2">¡Último Paso!</h3>
               <p className="text-gray-500 text-sm">Pregunta 5 de 5</p>
             </div>
 
@@ -333,22 +328,17 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs text-gray-400 uppercase tracking-widest pl-2">Estructura de Propiedad</label>
-              <div className="space-y-3">
-                {ownershipOptions.map(opt => (
-                  <button
-                    key={opt}
-                    onClick={() => updateField('ownership', opt)}
-                    className={`w-full p-4 rounded-xl border text-left transition-all ${formData.ownership === opt
-                      ? 'bg-blue-600 border-blue-500 text-white shadow-[0_0_15px_rgba(37,99,235,0.5)]'
-                      : 'bg-white/5 border-white/10 text-gray-300 hover:bg-white/10'
-                      }`}
-                  >
-                    {opt}
-                  </button>
-                ))}
-              </div>
-              {errors.ownership && <p className="text-red-400 text-xs pl-2">{errors.ownership}</p>}
+              <label className="text-xs text-gray-400 uppercase tracking-widest pl-2">Número de Teléfono</label>
+              <input
+                type="tel"
+                value={formData.phone}
+                onChange={(e) => updateField('phone', e.target.value)}
+                placeholder="+52 1 55 1234 5678"
+                className={`w-full px-5 py-4 bg-white/5 border border-white/10 text-white rounded-xl focus:border-blue-500 focus:bg-white/10 outline-none transition-all placeholder:text-gray-600 ${errors.phone ? 'border-red-500/50' : ''
+                  }`}
+              />
+              {errors.phone && <p className="text-red-400 text-xs pl-2">{errors.phone}</p>}
+              <p className="text-gray-500 text-xs pl-2">Aquí recibirás tu archivo personalizado</p>
             </div>
 
             <div className="flex gap-4 mt-8">
