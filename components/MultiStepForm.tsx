@@ -113,13 +113,17 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
       return;
     }
 
+
     try {
-      // Combine country code with phone number
-      const fullPhoneNumber = `${selectedCountry.code} ${formData.phone}`;
+      // Send country code and phone number separately
       const dataToSend = {
         ...formData,
-        phone: fullPhoneNumber
+        countryCode: selectedCountry.code,  // +52, +1, etc.
+        phoneNumber: formData.phone         // 55 1234 5678
       };
+      
+      // Remove the old 'phone' field
+      delete dataToSend.phone;
 
       await fetch(webhookUrl, {
         method: 'POST',
