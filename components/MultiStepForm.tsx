@@ -29,7 +29,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
   const [selectedCountry, setSelectedCountry] = useState({ code: '+52', flag: '🇲🇽', name: 'México' });
   const [showCountryDropdown, setShowCountryDropdown] = useState(false);
 
-  const webhookUrl = 'https://script.google.com/macros/s/AKfycbx8o0orGA5fwv2HpAC7HoNM0s24bB0oIiTfHsjxKQ8uP4Ht1pudnS6JuDUp5k1xiLs/exec';
+  const webhookUrl = 'https://script.google.com/macros/s/AKfycbym9hmIU55sMR99RkW_vMeGwml4npHjaFgx3iErnUe041RwO1_mqibm5Lw7TihuMjoXWw/exec';
 
   const employeeOptions = [
     'Yo y proveedores',
@@ -175,8 +175,9 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
                   value={formData.firstName}
                   onChange={(e) => updateField('firstName', e.target.value)}
                   placeholder="Juan"
-                  className={`w-full px-5 py-4 bg-white/5 border border-white/10 text-white rounded-xl focus:border-blue-500 focus:bg-white/10 outline-none transition-all placeholder:text-gray-600 ${errors.firstName ? 'border-red-500/50' : ''
-                    }`}
+                  className={`w-full px-5 py-4 bg-white/5 border border-white/10 text-white rounded-xl focus:border-blue-500 focus:bg-white/10 outline-none transition-all placeholder:text-gray-600 ${
+                    errors.firstName ? 'border-red-500/50' : ''
+                  }`}
                 />
                 {errors.firstName && <p className="text-red-400 text-xs pl-2">{errors.firstName}</p>}
               </div>
@@ -187,8 +188,9 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
                   value={formData.lastName}
                   onChange={(e) => updateField('lastName', e.target.value)}
                   placeholder="Pérez"
-                  className={`w-full px-5 py-4 bg-white/5 border border-white/10 text-white rounded-xl focus:border-blue-500 focus:bg-white/10 outline-none transition-all placeholder:text-gray-600 ${errors.lastName ? 'border-red-500/50' : ''
-                    }`}
+                  className={`w-full px-5 py-4 bg-white/5 border border-white/10 text-white rounded-xl focus:border-blue-500 focus:bg-white/10 outline-none transition-all placeholder:text-gray-600 ${
+                    errors.lastName ? 'border-red-500/50' : ''
+                  }`}
                 />
                 {errors.lastName && <p className="text-red-400 text-xs pl-2">{errors.lastName}</p>}
               </div>
@@ -218,8 +220,9 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
                 value={formData.email}
                 onChange={(e) => updateField('email', e.target.value)}
                 placeholder="nombre@empresa.com"
-                className={`w-full px-5 py-4 bg-white/5 border border-white/10 text-white rounded-xl focus:border-blue-500 focus:bg-white/10 outline-none transition-all placeholder:text-gray-600 ${errors.email ? 'border-red-500/50' : ''
-                  }`}
+                className={`w-full px-5 py-4 bg-white/5 border border-white/10 text-white rounded-xl focus:border-blue-500 focus:bg-white/10 outline-none transition-all placeholder:text-gray-600 ${
+                  errors.email ? 'border-red-500/50' : ''
+                }`}
               />
               {errors.email && <p className="text-red-400 text-xs pl-2">{errors.email}</p>}
             </div>
@@ -260,10 +263,11 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
                       // Slight delay to show selection before auto-advancing could be nice, 
                       // but generic select behavior is safer. We'll just select it.
                     }}
-                    className={`p-4 rounded-xl border text-left transition-all ${formData.employees === opt
-                      ? 'bg-blue-600 border-blue-500 text-white shadow-[0_0_15px_rgba(37,99,235,0.5)]'
-                      : 'bg-white/5 border-white/10 text-gray-300 hover:bg-white/10'
-                      }`}
+                    className={`p-4 rounded-xl border text-left transition-all ${
+                      formData.employees === opt
+                        ? 'bg-blue-600 border-blue-500 text-white shadow-[0_0_15px_rgba(37,99,235,0.5)]'
+                        : 'bg-white/5 border-white/10 text-gray-300 hover:bg-white/10'
+                    }`}
                   >
                     {opt}
                   </button>
@@ -304,10 +308,11 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
                   <button
                     key={opt}
                     onClick={() => updateField('revenue', opt)}
-                    className={`p-4 rounded-xl border text-left transition-all ${formData.revenue === opt
-                      ? 'bg-blue-600 border-blue-500 text-white shadow-[0_0_15px_rgba(37,99,235,0.5)]'
-                      : 'bg-white/5 border-white/10 text-gray-300 hover:bg-white/10'
-                      }`}
+                    className={`p-4 rounded-xl border text-left transition-all ${
+                      formData.revenue === opt
+                        ? 'bg-blue-600 border-blue-500 text-white shadow-[0_0_15px_rgba(37,99,235,0.5)]'
+                        : 'bg-white/5 border-white/10 text-gray-300 hover:bg-white/10'
+                    }`}
                   >
                     {opt}
                   </button>
