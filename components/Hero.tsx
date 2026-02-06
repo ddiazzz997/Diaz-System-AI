@@ -18,7 +18,7 @@ const Starfield: React.FC = () => {
     let mouseY = 0;
 
     class Star {
-      x:number;
+      x: number;
       y: number;
       size: number;
       baseOpacity: number;
@@ -119,7 +119,7 @@ const Hero: React.FC = () => {
         </h1>
 
         <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-12 opacity-0 animate-[fadeInUp_1s_ease-out_0.4s_forwards] font-light">
-          Automatice procesos operativos, elimine tareas manuales y recupere +10 horas a la semana integrando flujos de IA personalizados
+          Descubra los cuellos de botella de su IA, implemente sistemas de alto ROI y acceda a educación en IA de primer nivel.
         </p>
 
         {/* Hero Dashboard Graphic (Reduced Size) */}
