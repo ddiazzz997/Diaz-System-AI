@@ -24,18 +24,18 @@ const BookingCalendar: React.FC = () => {
                         className="relative group booking-button-float"
                     >
                         {/* Animated Ring Pulses - Multi-layered */}
-                        <span className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-75 animate-ping"></span>
-                        <span className="absolute inset-0 rounded-3xl bg-gradient-to-r from-pink-500 via-blue-500 to-purple-500 opacity-50 animate-ping" style={{animationDelay: '0.5s'}}></span>
-                        <span className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-25 animate-ping" style={{animationDelay: '1s'}}></span>
+                        <span className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 opacity-75 animate-ping"></span>
+                        <span className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500 opacity-50 animate-ping" style={{animationDelay: '0.5s'}}></span>
+                        <span className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 opacity-25 animate-ping" style={{animationDelay: '1s'}}></span>
 
                         {/* Outer Glow with Flowing Gradient */}
-                        <div className="absolute -inset-3 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl blur-2xl opacity-70 group-hover:opacity-100 transition duration-700 animate-gradient-flow"></div>
+                        <div className="absolute -inset-3 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 rounded-3xl blur-2xl opacity-70 group-hover:opacity-100 transition duration-700 animate-gradient-flow"></div>
 
                         {/* 3D Shadow for Depth */}
                         <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-transparent to-black/20 group-hover:to-black/10 transition-all duration-300"></div>
 
                         {/* Main Button Container with 3D Effect */}
-                        <div className="relative px-12 py-6 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-3xl text-white font-bold text-xl md:text-2xl shadow-[0_8px_32px_rgba(139,92,246,0.4)] group-hover:shadow-[0_12px_48px_rgba(139,92,246,0.6)] group-hover:scale-110 transition-all duration-500 flex items-center gap-4 overflow-hidden border border-white/20">
+                        <div className="relative px-12 py-6 bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-500 rounded-3xl text-white font-bold text-xl md:text-2xl shadow-[0_8px_32px_rgba(6,182,212,0.4)] group-hover:shadow-[0_12px_48px_rgba(6,182,212,0.6)] group-hover:scale-110 transition-all duration-500 flex items-center gap-4 overflow-hidden border border-white/20">
                             
                             {/* Shimmer Effect Overlay */}
                             <div className="absolute inset-0 shimmer-overlay"></div>
@@ -49,7 +49,7 @@ const BookingCalendar: React.FC = () => {
                             </svg>
 
                             {/* Text with Gradient */}
-                            <span className="relative z-10 bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(255,255,255,0.3)]">
+                            <span className="relative z-10 bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(255,255,255,0.3)]">
                                 Agendar Llamada
                             </span>
 
@@ -66,11 +66,11 @@ const BookingCalendar: React.FC = () => {
                         </div>
 
                         {/* Enhanced Bottom Reflection */}
-                        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4/5 h-4 bg-gradient-to-r from-blue-600/30 via-purple-600/30 to-pink-600/30 blur-xl rounded-full"></div>
+                        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4/5 h-4 bg-gradient-to-r from-cyan-500/30 via-blue-600/30 to-purple-600/30 blur-xl rounded-full"></div>
                         
                         {/* Side Glow Accents */}
-                        <div className="absolute top-1/2 -left-4 w-8 h-16 bg-blue-500/40 blur-2xl rounded-full -translate-y-1/2 group-hover:bg-blue-500/60 transition-all duration-500"></div>
-                        <div className="absolute top-1/2 -right-4 w-8 h-16 bg-pink-500/40 blur-2xl rounded-full -translate-y-1/2 group-hover:bg-pink-500/60 transition-all duration-500"></div>
+                        <div className="absolute top-1/2 -left-4 w-8 h-16 bg-cyan-500/40 blur-2xl rounded-full -translate-y-1/2 group-hover:bg-cyan-500/60 transition-all duration-500"></div>
+                        <div className="absolute top-1/2 -right-4 w-8 h-16 bg-purple-500/40 blur-2xl rounded-full -translate-y-1/2 group-hover:bg-purple-500/60 transition-all duration-500"></div>
                     </a>
                 </div>
 
