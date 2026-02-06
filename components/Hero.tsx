@@ -1,126 +1,82 @@
+import React from 'react';
 
-import React, { useEffect, useRef } from 'react';
-
-const Starfield: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let animationFrameId: number;
-    let stars: Star[] = [];
-    const starCount = 150;
-    let mouseX = 0;
-    let mouseY = 0;
-
-    class Star {
-      x: number;
-      y: number;
-      size: number;
-      baseOpacity: number;
-      opacity: number;
-      twinkleSpeed: number;
-      parallaxFactor: number;
-
-      constructor(width: number, height: number) {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.size = Math.random() * 1.5;
-        this.baseOpacity = Math.random() * 0.5 + 0.2;
-        this.opacity = this.baseOpacity;
-        this.twinkleSpeed = Math.random() * 0.02;
-        this.parallaxFactor = Math.random() * 20;
-      }
-
-      update(width: number, height: number, mX: number, mY: number) {
-        // Twinkle
-        this.opacity = this.baseOpacity + Math.sin(Date.now() * this.twinkleSpeed) * 0.2;
-
-        // Slow drift
-        this.y -= 0.05;
-        if (this.y < 0) this.y = height;
-
-        // Render with parallax offset
-        const offsetX = (mX - width / 2) / (100 - this.parallaxFactor);
-        const offsetY = (mY - height / 2) / (100 - this.parallaxFactor);
-
-        return { x: this.x + offsetX, y: this.y + offsetY };
-      }
-
-      draw(context: CanvasRenderingContext2D, coords: { x: number; y: number }) {
-        context.beginPath();
-        context.arc(coords.x, coords.y, this.size, 0, Math.PI * 2);
-        context.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-        context.fill();
-      }
-    }
-
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      stars = Array.from({ length: starCount }, () => new Star(canvas.width, canvas.height));
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    };
-
-    const render = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      stars.forEach(star => {
-        const coords = star.update(canvas.width, canvas.height, mouseX, mouseY);
-        star.draw(ctx, coords);
-      });
-      animationFrameId = requestAnimationFrame(render);
-    };
-
-    window.addEventListener('resize', resize);
-    window.addEventListener('mousemove', handleMouseMove);
-    resize();
-    render();
-
-    return () => {
-      window.removeEventListener('resize', resize);
-      window.removeEventListener('mousemove', handleMouseMove);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
-  return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />;
-};
-
-const Hero: React.FC = () => {
-
+const Hero = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-4 pb-20 overflow-hidden bg-black">
-      {/* Dynamic Starfield */}
-      <Starfield />
-
-      {/* Logo */}
-      <div className="mb-20 relative z-10 mt-4">
-        <img
-          src="/Logo/Logoo.png"
-          alt="Diaz Systems AI"
-          className="w-40 md:w-auto h-auto md:h-12"
-        />
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-[#0a0f1c] via-[#0d1321] to-[#0a0f1c]">
+      {/* Animated Starfield Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(100)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-[2px] h-[2px] bg-white rounded-full animate-twinkle"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              opacity: Math.random() * 0.7 + 0.3,
+            }}
+          />
+        ))}
       </div>
 
-      {/* Headlines */}
-      <div className="text-center max-w-5xl px-6 relative z-10 transition-all duration-1000">
+      {/* Gradient Orbs */}
+      <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
 
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 opacity-0 animate-[fadeInUp_1s_ease-out_0.2s_forwards] leading-[1.1]">
-          <span className="text-white">Escale su negocio</span><br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">con sistemas de IA</span>
-        </h1>
+      {/* Main Content */}
+      <div className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center gap-12">
 
-        <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-12 opacity-0 animate-[fadeInUp_1s_ease-out_0.4s_forwards] font-light">
-          Automatice procesos operativos, elimine tareas manuales y recupere +10 horas a la semana integrando flujos de IA personalizados
-        </p>
+        {/* Main Headline */}
+        <div className="max-w-5xl opacity-0 animate-[fadeInUp_1s_ease-out_forwards]">
+          <div className="inline-block px-4 py-2 mb-6 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm font-medium">
+            ✨ Transformación Digital con IA
+          </div>
+          <h1 className="text-6xl md:text-8xl font-black leading-tight mb-6">
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-blue-500 bg-clip-text text-transparent animate-gradient">
+              Potencia tu negocio
+            </span>
+            <br />
+            <span className="text-white">
+              con sistemas de IA
+            </span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+            Descubre tus cuellos de botella con IA, despliega sistemas de alto ROI y accede a educación de clase mundial en IA.
+          </p>
+
+          {/* CTA Button */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href="#form"
+              className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-2xl text-lg shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 relative overflow-hidden"
+            >
+              <span className="relative z-10">Agenda tu Llamada Estratégica 1:1 ✦</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </a>
+
+            {/* WhatsApp Button */}
+            <a
+              href="https://wa.me/50379126169?text=Hola%2C%20quisiera%20solicitar%20una%20asesor%C3%ADa%201%3A1%20para%20dominar%20la%20arquitectura%20de%20sistemas%20de%20IA.%20%C2%BFPodr%C3%ADas%20ayudarme%3F"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-2xl text-lg shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-105 flex items-center gap-3"
+            >
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Solicitar Asesoría 1:1
+            </a>
+          </div>
+        </div>
+
+        {/* Logo */}
+        <div className="opacity-0 animate-[fadeInUp_1s_ease-out_0.3s_forwards]">
+          <img
+            src="/Logo/Logoo.png"
+            alt="Diaz Systems AI"
+            className="w-40 md:w-auto h-auto md:h-12"
+          />
+        </div>
 
         {/* Hero Dashboard Graphic (Reduced Size) */}
         <div className="relative z-10 w-full max-w-3xl mx-auto mb-0 opacity-0 animate-[fadeInUp_1s_ease-out_0.5s_forwards] scale-90 origin-top">
@@ -180,7 +136,7 @@ const Hero: React.FC = () => {
 
               {/* Right Column: Chart & Stats */}
               <div className="flex-1 flex flex-col z-10 gap-4">
-
+                
                 {/* Mobile: Central Metric Card */}
                 <div className="md:hidden bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-2xl p-6 border border-blue-500/30 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10" />
@@ -288,106 +244,48 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          <style>{`
-            @keyframes growUp {
-              from { height: 0; opacity: 0; }
-              to { opacity: 1; }
-            }
-          `}</style>
-        </div>
-
-        {/* CTA Button */}
-        <div className="opacity-0 animate-[fadeInUp_1s_ease-out_0.6s_forwards] relative group mt-8 inline-flex justify-center items-center">
-          {/* Animated Glow Ring */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded-xl blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-
-          {/* Cosmic blue glow behind button - Tightened Match */}
-          <div className="absolute inset-0 z-0 pointer-events-none transition-opacity duration-500 group-hover:opacity-100 opacity-60 rounded-xl overflow-hidden">
-            <div className="absolute inset-0 animate-[cosmicShift_14s_ease-in-out_infinite]"
-              style={{
-                background: 'radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.4) 0%, transparent 60%)',
-                filter: 'blur(10px)'
-              }} />
+          {/* Floating stats decorations */}
+          <div className="absolute -left-12 top-1/4 bg-white/5 backdrop-blur-xl rounded-2xl p-4 border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block">
+            <div className="text-3xl font-bold text-white">98%</div>
+            <div className="text-[10px] text-gray-400 uppercase">Tasa de Éxito</div>
           </div>
-
-          <button
-            onClick={() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' })}
-            className="relative z-10 flex items-center gap-2 bg-white text-black px-8 py-3.5 text-base font-bold hover:bg-gray-100 transition-all rounded-xl cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:scale-[1.02] active:scale-[0.98] group/btn"
-          >
-            Escalar Mi Negocio
-          </button>
+          <div className="absolute -right-12 bottom-1/4 bg-white/5 backdrop-blur-xl rounded-2xl p-4 border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block">
+            <div className="text-3xl font-bold text-white">24/7</div>
+            <div className="text-[10px] text-gray-400 uppercase">Disponibilidad</div>
+          </div>
         </div>
+
       </div>
 
-      {/* Enhanced Breathing Horizon Glow - positioned behind form */}
-      <div className="absolute bottom-60 left-[-30%] w-[160%] h-[400px] z-0 pointer-events-none animate-[pulse_8s_ease-in-out_infinite]"
-        style={{
-          background: 'radial-gradient(ellipse at center, rgba(255, 170, 0, 0.2) 0%, transparent 75%)',
-          borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-          borderRadius: '50% / 100% 100% 0 0',
-          filter: 'blur(40px)'
-        }} />
+      {/* Bottom Gradient Fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0f1c] to-transparent pointer-events-none" />
 
-      <style>{`
+      {/* Custom Keyframes */}
+      <style jsx>{`
         @keyframes fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
           }
           to {
             opacity: 1;
             transform: translateY(0);
           }
         }
-
-        @keyframes cosmicShift {
-          0%, 100% {
-            transform: translate(0, 0) scale(1);
-            opacity: 0.7;
-          }
-          25% {
-            transform: translate(8px, -6px) scale(1.05);
-            opacity: 1;
-          }
-          50% {
-            transform: translate(-6px, 8px) scale(0.98);
-            opacity: 0.6;
-          }
-          75% {
-            transform: translate(4px, 4px) scale(1.02);
-            opacity: 0.85;
-          }
+        @keyframes twinkle {
+          0%, 100% { opacity: 0.3; }
+          50% { opacity: 1; }
         }
-
-        .bg-gradient-radial {
-          background: radial-gradient(circle, var(--tw-gradient-stops));
+        @keyframes gradient {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
         }
-
-        @keyframes cosmicButtonGlow {
-          0%, 100% {
-            transform: scale(1) translate(0, 0);
-            opacity: 0.6;
-          }
-          33% {
-            transform: scale(1.1) translate(3px, -3px);
-            opacity: 0.8;
-          }
-          66% {
-            transform: scale(1.05) translate(-3px, 3px);
-            opacity: 0.7;
-          }
-        }
-
-        @keyframes fadeInGlow {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
+        .animate-gradient {
+          background-size: 200% 200%;
+          animation: gradient 3s ease infinite;
         }
       `}</style>
-    </section>
+    </div>
   );
 };
 
