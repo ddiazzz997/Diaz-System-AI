@@ -12,6 +12,7 @@ import BlogPage from './components/BlogPage';
 import ArticlePage from './components/ArticlePage';
 import HomePageSEO from './components/HomePageSEO';
 import Chatbot from './components/Chatbot';
+import WhatsAppButton from './components/WhatsAppButton';
 
 const HomePage: React.FC = () => {
   return (
@@ -37,6 +38,7 @@ const App: React.FC = () => {
       </Routes>
       <Footer />
       <Chatbot />
+      <WhatsAppButton />
     </div>
   );
 };
