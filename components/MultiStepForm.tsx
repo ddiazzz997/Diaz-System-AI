@@ -26,6 +26,8 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState({ code: '+52', flag: '🇲🇽', name: 'México' });
+  const [showCountryDropdown, setShowCountryDropdown] = useState(false);
 
   const webhookUrl = 'https://script.google.com/macros/s/AKfycbw6hRBe5R8aeNwCmGEF2NYLmn-qT9BojztAl1mLj0kfnP7o6gaNz179A4YPwt-3nLzN/exec';
 
@@ -47,6 +49,19 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
     '$25,000 a $50,000/mes',
     '$50,000 a $100,000/mes',
     'Más de $100,000/mes'
+  ];
+
+  const countries = [
+    { code: '+52', flag: '🇲🇽', name: 'México' },
+    { code: '+1', flag: '🇺🇸', name: 'USA' },
+    { code: '+34', flag: '🇪🇸', name: 'España' },
+    { code: '+54', flag: '🇦🇷', name: 'Argentina' },
+    { code: '+57', flag: '🇨🇴', name: 'Colombia' },
+    { code: '+51', flag: '🇵🇪', name: 'Perú' },
+    { code: '+56', flag: '🇨🇱', name: 'Chile' },
+    { code: '+58', flag: '🇻🇪', name: 'Venezuela' },
+    { code: '+593', flag: '🇪🇨', name: 'Ecuador' },
+    { code: '+1', flag: '🇨🇦', name: 'Canadá' },
   ];
 
 
@@ -99,13 +114,20 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
     }
 
     try {
+      // Combine country code with phone number
+      const fullPhoneNumber = `${selectedCountry.code} ${formData.phone}`;
+      const dataToSend = {
+        ...formData,
+        phone: fullPhoneNumber
+      };
+
       await fetch(webhookUrl, {
         method: 'POST',
         mode: 'no-cors', // Essential for Google Apps Script
         headers: {
           'Content-Type': 'text/plain', // Avoid preflight
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(dataToSend),
       });
       onComplete();
     } catch (error) {
@@ -329,14 +351,58 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
 
             <div className="space-y-2">
               <label className="text-xs text-gray-400 uppercase tracking-widest pl-2">Número de Teléfono</label>
-              <input
-                type="tel"
-                value={formData.phone}
-                onChange={(e) => updateField('phone', e.target.value)}
-                placeholder="+52 1 55 1234 5678"
-                className={`w-full px-5 py-4 bg-white/5 border border-white/10 text-white rounded-xl focus:border-blue-500 focus:bg-white/10 outline-none transition-all placeholder:text-gray-600 ${errors.phone ? 'border-red-500/50' : ''
+              <div className="flex gap-2">
+                {/* Country Selector */}
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setShowCountryDropdown(!showCountryDropdown)}
+                    className="h-full px-3 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-all flex items-center gap-2 text-white min-w-[100px]"
+                  >
+                    <span className="text-2xl">{selectedCountry.flag}</span>
+                    <span className="text-sm">{selectedCountry.code}</span>
+                    <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+
+                  {/* Dropdown */}
+                  {showCountryDropdown && (
+                    <div className="absolute top-full mt-2 left-0 w-64 bg-black/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl z-50 max-h-64 overflow-y-auto">
+                      {countries.map((country) => (
+                        <button
+                          key={country.code + country.name}
+                          type="button"
+                          onClick={() => {
+                            setSelectedCountry(country);
+                            setShowCountryDropdown(false);
+                          }}
+                          className="w-full px-4 py-3 flex items-center gap-3 hover:bg-white/10 transition-all text-left"
+                        >
+                          <span className="text-2xl">{country.flag}</span>
+                          <span className="text-white text-sm flex-1">{country.name}</span>
+                          <span className="text-gray-400 text-sm">{country.code}</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Phone Input */}
+                <input
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) => {
+                    // Only allow numbers and spaces
+                    const value = e.target.value.replace(/[^0-9\s]/g, '');
+                    updateField('phone', value);
+                  }}
+                  placeholder="55 1234 5678"
+                  className={`flex-1 px-5 py-4 bg-white/5 border border-white/10 text-white rounded-xl focus:border-blue-500 focus:bg-white/10 outline-none transition-all placeholder:text-gray-600 ${
+                    errors.phone ? 'border-red-500/50' : ''
                   }`}
-              />
+                />
+              </div>
               {errors.phone && <p className="text-red-400 text-xs pl-2">{errors.phone}</p>}
               <p className="text-gray-500 text-xs pl-2">Aquí recibirás tu archivo personalizado</p>
             </div>
