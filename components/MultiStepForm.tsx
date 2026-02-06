@@ -29,7 +29,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
   const [selectedCountry, setSelectedCountry] = useState({ code: '+52', flag: '🇲🇽', name: 'México' });
   const [showCountryDropdown, setShowCountryDropdown] = useState(false);
 
-  const webhookUrl = 'https://script.google.com/macros/s/AKfycbw6hRBe5R8aeNwCmGEF2NYLmn-qT9BojztAl1mLj0kfnP7o6gaNz179A4YPwt-3nLzN/exec';
+  const webhookUrl = 'https://script.google.com/macros/s/AKfycbx8o0orGA5fwv2HpAC7HoNM0s24bB0oIiTfHsjxKQ8uP4Ht1pudnS6JuDUp5k1xiLs/exec';
 
   const employeeOptions = [
     'Yo y proveedores',
