@@ -54,7 +54,7 @@ const Chatbot: React.FC = () => {
 
             // 2. EDUCACIÓN (Direct to WhatsApp)
             else if (input.includes('curso') || input.includes('aprender') || input.includes('arquitectura') || input.includes('educación') || input.includes('comunidad') || input.includes('saber más') || input.includes('enseñar')) {
-                botResponse = "¡Excelente elección! Dominar la arquitectura de IA es lo que te separa de depender de agencias para siempre. \n\nPara esto, tengo una comunidad privada y asesorías 1:1 donde te enseño exactamente lo que uso. Escríbeme directo a WhatsApp para ver si haces fit con el programa:";
+                botResponse = "¡Excelente elección! Dominar la arquitectura de IA es lo que te separa de depender de agencias para siempre. \\n\\nPara esto, tengo una comunidad privada y asesorías 1:1 donde te enseño exactamente lo que uso. Escríbeme directo a WhatsApp para ver si haces fit con el programa:";
 
                 // Add a specific message with the link after a short delay
                 setMessages(prev => [...prev, {
@@ -76,11 +76,11 @@ const Chatbot: React.FC = () => {
 
             // 3. AUDITORÍA Y PROYECTOS (Qualifying -> Form/Calendar)
             else if (input.includes('precio') || input.includes('costo') || input.includes('servicio') || input.includes('implementar') || input.includes('automatizar') || input.includes('empresa') || input.includes('auditoría') || input.includes('proyecto')) {
-                botResponse = "Entiendo. Mira, no vendemos 'paquetes genéricos' porque cada negocio tiene cuellos de botella diferentes. \n\nPara darte un presupuesto que tenga sentido (y ROI positivo), necesito que hagamos una radiografía rápida de tu situación actual. \n\n¿Te parece bien si llenas un formulario de 30 segundos para ver si podemos ayudarte?";
+                botResponse = "Entiendo. Mira, no vendemos 'paquetes genéricos' porque cada negocio tiene cuellos de botella diferentes. \\n\\nPara darte un presupuesto que tenga sentido (y ROI positivo), necesito que hagamos una radiografía rápida de tu situación actual. \\n\\n¿Te parece bien si llenas un formulario de 30 segundos para ver si podemos ayudarte?";
             }
 
             else if (input.includes('sí') || input.includes('si') || input.includes('claro') || input.includes('ok') || input.includes('está bien') || input.includes('vale')) {
-                botResponse = "¡Perfecto! Esa es la actitud. \n\nCompleta este diagnóstico rápido. Si el sistema ve que podemos ayudarte, te generará una Hoja de Ruta gratuita automáticamente:";
+                botResponse = "¡Perfecto! Esa es la actitud. \\n\\nCompleta este diagnóstico rápido. Si el sistema ve que podemos ayudarte, te generará una Hoja de Ruta gratuita automáticamente:";
 
                 setMessages(prev => [...prev, {
                     id: Date.now() + 1,
@@ -101,7 +101,7 @@ const Chatbot: React.FC = () => {
 
             // 4. HANDLING DOUBTS / OBJECTIONS
             else if (input.includes('no sé') || input.includes('duda') || input.includes('humano') || input.includes('persona')) {
-                botResponse = "Lo entiendo perfectamente. A veces tanta tecnología abruma. \n\nMi trabajo es simple: ayudarte a ver dónde estás perdiendo dinero por no automatizar. Si prefieres hablar con un humano directo, agenda una llamada de estrategia aquí abajo. ¿Te paso el link?";
+                botResponse = "Lo entiendo perfectamente. A veces tanta tecnología abruma. \\n\\nMi trabajo es simple: ayudarte a ver dónde estás perdiendo dinero por no automatizar. Si prefieres hablar con un humano directo, agenda una llamada de estrategia aquí abajo. ¿Te paso el link?";
             }
 
             else if (input.includes('link') || input.includes('calendario') || input.includes('agendar')) {
@@ -146,7 +146,7 @@ const Chatbot: React.FC = () => {
     };
 
     return (
-        <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end">
+        <div className="fixed bottom-6 left-6 z-[9999] flex flex-col items-start">
             {/* Chat Window */}
             {isOpen && (
                 <div className="mb-4 w-[350px] max-h-[500px] h-[400px] bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-[fadeInUp_0.3s_ease-out]">
