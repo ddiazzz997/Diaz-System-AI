@@ -43,12 +43,12 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ onComplete }) => {
   ];
 
   const revenueOptions = [
-    'Menos de $5,000/mes',
-    '$5,000 a $10,000/mes',
+    'Menos de $10,000/mes',
     '$10,000 a $25,000/mes',
     '$25,000 a $50,000/mes',
     '$50,000 a $100,000/mes',
-    'Más de $100,000/mes'
+    '$100,000 a $250,000/mes',
+    'Más de $250,000/mes'
   ];
 
   const countries = [
